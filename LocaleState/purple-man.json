@@ -1,0 +1,134 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 2,
+  "final_space": true,
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "template": "\n<#FF23FF>\u256d[</> "
+        },
+        {
+          "type": "os",
+          "style": "powerline",
+          "powerline_symbol": "\ue0bc",
+          "template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}} ",
+          "background": "#7F00FF",
+          "foreground": "#FFFFFF"
+        },
+        {
+          "type": "session",
+          "style": "powerline",
+          "powerline_symbol": "\ue0c6",
+          "template": " {{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }} ",
+          "properties": {
+            "display_host": true,
+            "display_user": true
+          },
+          "background": "#9F33FF",
+          "foreground": "#ffffff"
+        },
+        {
+          "type": "python",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "template": " \ue235 {{ .Venv }} ",
+          "background": "#FF5733",
+          "foreground": "#ffffff",
+          "properties": {
+            "display_virtual_env": true
+          }
+        },
+        {
+          "type": "dotnet",
+          "style": "powerline",
+          "powerline_symbol": "\ue0c0",
+          "template": " \ue77f {{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }} ",
+          "background": "#C1137B",
+          "foreground": "#FFFFFF"
+        },
+        {
+          "type": "node",
+          "style": "powerline",
+          "powerline_symbol": "\ue0c0",
+          "template": " \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} ",
+          "background": "#E92887",
+          "foreground": "#ffffff"
+        },
+        {
+          "type": "exit",
+          "style": "plain",
+          "powerline_symbol": "\ue0b0",
+          "template": "<#FF23FF>[x</>{{ if gt .Code 0 }}\uf00d {{ .Meaning }}{{ else }}\uf42e{{ end }}<#FF23FF>] </>",
+          "foreground": "#ffffff"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "type": "root",
+          "style": "plain",
+          "template": "<#FF23FF>[</>\uf0e7<#FF23FF>] </>",
+          "foreground": "#B5B50D"
+        },
+        {
+          "type": "spotify",
+          "style": "diamond",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "template": " {{ .Icon }}{{ if ne .Status \"stopped\" }}{{ .Artist }} - {{ .Track }}{{ end }} ",
+          "background": "#1BD760",
+          "foreground": "#ffffff"
+        },
+        {
+          "type": "time",
+          "style": "plain",
+          "template": "<#FF23FF>[  </>{{ .CurrentDate | date .Format }}<#FF23FF> ] </>",
+          "foreground": "#007ACC"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "template": "<#FF23FF>\u2570[</> "
+        },
+        {
+          "type": "path",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b8",
+          "template": " \uf115   {{ .Path }} ",
+          "properties": {
+            "style": "full"
+          },
+          "background": "#7F00FF",
+          "foreground": "#ffffff"
+        },
+        {
+          "type": "git",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "template": "{{ .HEAD | replace \"\" \"  \" }} {{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }} ",
+          "properties": {
+            "fetch_stash_count": true,
+            "fetch_upstream_icon": true
+          },
+          "background": "#9F33FF",
+          "foreground": "#ffffff"
+        }
+      ],
+      "newline": true
+    }
+  ]
+}
