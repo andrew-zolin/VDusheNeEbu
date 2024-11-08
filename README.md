@@ -41,7 +41,10 @@
 2. If your version is 3.10 or higher, it’s recommended to install Python 3.9 or lower for compatibility with this project.
 
 
+## Step 5: Donwload Cascadia Mono NF font 
 
+```plaintext
+https://github.com/microsoft/cascadia-code/releases/tag/v2404.23 
 
 
 
