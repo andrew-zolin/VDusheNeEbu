@@ -14,6 +14,7 @@ Okay Let`s goo
 
 2. **Copy all files from the __WindowsPowerShell__ folder** in this repository to your newly created folder.
 
+3. **Add to global enviroment "PATH"** -  C:\Users\Current-User\Documents\WindowsPowerShell 
 
 ## Step 2: Configure Windows Terminal
 
